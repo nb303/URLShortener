@@ -32,7 +32,8 @@ def index():
         #     print("TEST")
         #     json.dump(shortened_urls,f)
         #return f"Your shortened URL is: {request.url_root}{short_url}" #root url and the /something
-        return render_template("index.html", short_url=short_url)
+        full_short_url = request.url_root + short_url
+        return render_template("index.html", short_url=full_short_url)
 
     return render_template("index.html")
 
