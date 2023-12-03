@@ -24,11 +24,14 @@ def generate_short_url(length=6):
 def index():
     if request.method == "POST":
         long_url = request.form['long_url']
+        if long_url.endswith(('.jpg', '.jpeg', '.png', '.gif')):
+            return render_template("index.html", error="Image URLs are not allowed!")
         short_url = generate_short_url()
         while short_url in shortened_urls:
             short_url = generate_short_url()
 
         shortened_urls[short_url]=long_url
+
         app.logger.info(f"Added URL: {long_url} with short URL: {short_url} to shortened_urls")
         with open("urls.json","w") as f:
             print("TEST")
