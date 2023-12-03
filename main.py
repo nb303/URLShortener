@@ -2,6 +2,7 @@ import random
 import string
 import json
 import os
+import logging
 
 from flask import Flask, render_template, redirect, url_for, request
 
@@ -45,7 +46,10 @@ def redirect_url(short_url):
         return redirect(long_url)
 
     else:
-        return "URL not found", 404
+        #return "URL not found", 404
+        error_message = f"URL '{short_url}' not found in shortened URLs."
+        logging.error(error_message)  # Log an error message
+        return f"URL not found: {short_url}. Please check the entered URL.", 404
 
 
 
