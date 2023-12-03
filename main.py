@@ -28,9 +28,9 @@ def index():
             short_url = generate_short_url()
 
         shortened_urls[short_url]=long_url
-        # with open("urls.json","w") as f:
-        #     print("TEST")
-        #     json.dump(shortened_urls,f)
+        with open("urls.json","w") as f:
+            print("TEST")
+            json.dump(shortened_urls,f)
         #return f"Your shortened URL is: {request.url_root}{short_url}" #root url and the /something
         full_short_url = request.url_root + short_url
         return render_template("index.html", short_url=full_short_url)
@@ -45,8 +45,7 @@ def redirect_url(short_url):
         return redirect(long_url)
 
     else:
-        return redirect(long_url)
-        #return "URL not found", 404
+        return "URL not found", 404
 
 
 
