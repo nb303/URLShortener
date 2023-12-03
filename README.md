@@ -10,4 +10,4 @@ Click the button and receive a direct shortened link to your website below!
 
 # Technologies Used
 
-Built with **Python** with the **Flask** framework for the backend. Styled with **HTML** and **CSS(Bootstrap)**.
+Built with **Python** with the **Flask** framework for the backend. Styled with **HTML** and **CSS(Bootstrap)**. Deployed on Heroku. 
