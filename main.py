@@ -45,7 +45,8 @@ def redirect_url(short_url):
         return redirect(long_url)
 
     else:
-        return "URL not found here in my app", 404
+        return redirect(long_url)
+        #return "URL not found", 404
 
 
 
