@@ -29,6 +29,7 @@ def index():
             short_url = generate_short_url()
 
         shortened_urls[short_url]=long_url
+        app.logger.info(f"Added URL: {long_url} with short URL: {short_url} to shortened_urls")
         with open("urls.json","w") as f:
             print("TEST")
             json.dump(shortened_urls,f)
@@ -43,6 +44,7 @@ def index():
 def redirect_url(short_url):
     long_url = shortened_urls.get(short_url)
     if long_url:
+        app.logger.debug(f"Retrieving URL for short URL: {short_url}")
         return redirect(long_url)
 
     else:
@@ -61,5 +63,10 @@ if __name__ == "__main__":
         shortened_urls = {}
 
     #app.run(debug=True)
+
+
+
+
+
 
 
